@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/register}" th:object="${users}" method="post" >
+		FullName : <input type="text" placeholder="Name" name="name" id="name"><br>
+		Email : <input type="email" placeholder="Email" name="email" id="email"><br>
+		Password : <input type="password" placeholder="Password" name="password" id="password"><br>
+		Already have an account? <a href="/">Login</a><br>
+		<div id="errors" th:if="${(param.error != null) and (param.error[0] == 'true')}">
+    	<p style="color:red">User Already Exists</p>
+		</div>
+		<input type="submit" value="Signup">
+		
+	</form>
+</body>
+</html>
